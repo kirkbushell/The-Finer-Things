@@ -19,6 +19,5 @@ class PublishReviewCommand
     {
         return $this->reviewId;
     }
-
 }
  

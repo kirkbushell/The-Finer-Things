@@ -124,6 +124,22 @@ class Review
      */
     public function scheduledFor(Carbon $dateTime)
     {
-        $this->scheduledFor = $dateTime;
+        $this->scheduledFor = $dateTime->toDateTimeString();
+    }
+
+    /**
+     * Publish a tiven review
+     */
+    public function publish()
+    {
+        $this->publishedAt = (new Carbon)->toDateTimeString();
+    }
+
+    /**
+     * @return datetime
+     */
+    public function publishedAt()
+    {
+        return $this->publishedAt;
     }
 }

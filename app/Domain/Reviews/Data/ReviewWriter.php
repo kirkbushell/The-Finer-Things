@@ -40,7 +40,15 @@ class ReviewWriter implements ReviewWriterInterface
      */
     public function withId(ReviewId $reviewId)
     {
+        $builder = $this->entityManager->createQueryBuilder();
 
+        $result = $builder->select('r')
+            ->from('Review', 'r')
+            ->where('r.id = :id')
+            ->setParameter('id', $reviewId)
+            ->getSingleResult();
+
+        return $result;
     }
 
     /**
@@ -54,7 +62,7 @@ class ReviewWriter implements ReviewWriterInterface
     {
         $review->scheduledFor($dateTime);
 
-        $this->entityManager->persist($scheduledReview);
+        $this->entityManager->persist($review);
         $this->entityManager->flush();
     }
 
@@ -68,5 +76,18 @@ class ReviewWriter implements ReviewWriterInterface
     {
         $this->entityManager->persist($review);
         $this->entityManager->flush();
+    }
+
+    /**
+     * Publish a given review.
+     *
+     * @param Review $review
+     * @return mixed
+     */
+    public function publishReview(Review $review)
+    {
+        $review->publish();
+
+        $this->saveReview($review);
     }
 }

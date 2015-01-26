@@ -30,5 +30,13 @@ interface ReviewWriterInterface
      * @return void
      */
     public function scheduleReview(Review $review, Carbon $dateTime);
+
+    /**
+     * Publish a given review.
+     *
+     * @param Review $review
+     * @return mixed
+     */
+    public function publishReview(Review $review);
 }
  

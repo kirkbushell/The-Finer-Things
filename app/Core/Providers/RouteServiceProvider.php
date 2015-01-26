@@ -1,4 +1,5 @@
-<?php namespace FinerThings\Providers;
+<?php
+namespace FinerThings\Core\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;

@@ -1,9 +1,10 @@
-<?php namespace FinerThings\Providers;
+<?php
+namespace FinerThings\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider {
-
+class AppServiceProvider extends ServiceProvider
+{
 	/**
 	 * Bootstrap any application services.
 	 *
@@ -25,10 +26,6 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bind(
-			'Illuminate\Contracts\Auth\Registrar',
-			'FinerThings\Services\Registrar'
-		);
-	}
 
+	}
 }

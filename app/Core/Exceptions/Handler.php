@@ -1,4 +1,5 @@
-<?php namespace FinerThings\Exceptions;
+<?php
+namespace FinerThings\Core\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
