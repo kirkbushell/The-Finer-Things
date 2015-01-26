@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: FinerThings
+        psr4_prefix: FinerThings
+        src_path: app
