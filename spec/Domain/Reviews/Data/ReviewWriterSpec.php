@@ -1,5 +1,5 @@
 <?php
-namespace spec\FinerThings\Domain\Reviews;
+namespace spec\FinerThings\Domain\Reviews\Data;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;

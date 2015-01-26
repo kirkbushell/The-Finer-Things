@@ -1,5 +1,5 @@
 <?php
-namespace spec\FinerThings\Domain\Reviews;
+namespace spec\FinerThings\Domain\Reviews\Data;
 
 use FinerThings\Domain\Categories\Category;
 use FinerThings\Domain\Reviews\AuthorId;
@@ -12,7 +12,7 @@ class ReviewSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->init();
-        $this->shouldHaveType('FinerThings\Domain\Reviews\Review');
+        $this->shouldHaveType('FinerThings\Domain\Reviews\Data\Review');
     }
 
     function it_should_allow_title_to_be_changed()
