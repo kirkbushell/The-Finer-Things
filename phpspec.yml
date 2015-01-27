@@ -3,3 +3,9 @@ suites:
         namespace: FinerThings
         psr4_prefix: FinerThings
         src_path: app
+
+extensions:
+    - PhpSpec\Laravel\Extension\LaravelExtension
+
+laravel_extension:
+    http_kernel_class: FinerThings\Http\Kernel

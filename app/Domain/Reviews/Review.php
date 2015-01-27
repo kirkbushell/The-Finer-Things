@@ -17,9 +17,16 @@ final class Review implements RecordsEvents, IsEventSourced
 
     private $reviewId;
     private $authorId;
+    private $category;
     private $title;
     private $content;
 
+    /**
+     * Review aggregate can only be constructed via a new review being started, or a review
+     * being reconstituted from the event store.
+     *
+     * @param ReviewId $reviewId
+     */
     private function __construct(ReviewId $reviewId)
     {
         $this->reviewId = $reviewId;
@@ -28,27 +35,33 @@ final class Review implements RecordsEvents, IsEventSourced
     /**
      * Start a new review.
      *
-     * @param ReviewId $reviewId
      * @param AuthorId $authorId
-     * @param $title
-     * @param $content
+     * @param string $category
+     * @param string $title
+     * @param string $content
+     * @return Review
      */
-    public static function start(ReviewId $reviewId, AuthorId $authorId, $title, $content)
+    public static function start(AuthorId $authorId, $category, $title, $content)
     {
+        $reviewId = ReviewId::generate();
+
         $review = new Review($reviewId);
-        $review->recordThat(new ReviewWasStarted($reviewId, $authorId, $title, $content));
+        $review->recordThat(new ReviewWasStarted($reviewId, $authorId, $category, $title, $content));
+
+        return $review;
     }
 
     /**
      * Save an existing review with the provided content.
      *
      * @param AuthorId $authorId
+     * @param $category
      * @param $title
      * @param $content
      */
-    public function save(AuthorId $authorId, $title, $content)
+    public function save(AuthorId $authorId, $category, $title, $content)
     {
-        $this->recordThat(new ReviewWasSaved($this->reviewId, $authorId, $title, $content));
+        $this->recordThat(new ReviewWasSaved($this->reviewId, $authorId, $category, $title, $content));
     }
 
     /**
@@ -58,7 +71,7 @@ final class Review implements RecordsEvents, IsEventSourced
     public static function reconstituteFrom(AggregateHistory $aggregateHistory)
     {
         $reviewId = $aggregateHistory->getAggregateId();
-        $review = new Review($reviewId);
+        $review = new Review(new ReviewId($reviewId));
 
         foreach ($aggregateHistory as $event) {
             $review->when($event);
@@ -83,34 +96,26 @@ final class Review implements RecordsEvents, IsEventSourced
     }
 
     /**
-     * @param $event
+     * @param DomainEvent $event
      */
-    private function setReviewData($event)
+    private function setReviewData(DomainEvent $event)
     {
+        $this->category = $event->getCategory();
         $this->title = $event->getTitle();
         $this->content = $event->getContent();
         $this->authorId = $event->getAuthor();
     }
 
-    /**
-     * @return mixed
-     */
     public function getAuthorId()
     {
         return $this->authorId;
     }
 
-    /**
-     * @return mixed
-     */
     public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * @return mixed
-     */
     public function getContent()
     {
         return $this->content;

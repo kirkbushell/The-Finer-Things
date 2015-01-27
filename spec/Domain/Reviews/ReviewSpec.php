@@ -1,5 +1,4 @@
 <?php
-
 namespace spec\FinerThings\Domain\Reviews;
 
 use PhpSpec\ObjectBehavior;

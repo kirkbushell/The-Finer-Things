@@ -3,24 +3,24 @@ namespace FinerThings\Domain\Reviews\Events;
 
 use Buttercup\Protects\DomainEvent;
 use Buttercup\Protects\IdentifiesAggregate;
+use FinerThings\Domain\Reviews\AuthorId;
 use FinerThings\Domain\Reviews\ReviewId;
 
 class ReviewWasSaved implements DomainEvent
 {
     private $reviewId;
     private $authorId;
+    private $category;
     private $title;
     private $content;
 
-    /**
-     * @param ReviewId $reviewId
-     */
-    function __construct(ReviewId $reviewId, AuthorId $authorId, $title, $content)
+    function __construct(ReviewId $reviewId, AuthorId $authorId, $category, $title, $content)
     {
         $this->reviewId = $reviewId;
         $this->authorId = $authorId;
         $this->title = $title;
         $this->content = $content;
+        $this->category = $category;
     }
 
     public function getAuthorId()
@@ -28,17 +28,16 @@ class ReviewWasSaved implements DomainEvent
         return $this->authorId;
     }
 
-    /**
-     * @return mixed
-     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
     public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * @return mixed
-     */
     public function getContent()
     {
         return $this->content;

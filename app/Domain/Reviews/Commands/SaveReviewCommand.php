@@ -21,41 +21,29 @@ class SaveReviewCommand
         $this->content = $content;
     }
 
-    public function id()
+    public function getAggregateId()
     {
         return $this->reviewId;
     }
 
-    /**
-     * @return mixed
-     */
-    public function authorId()
+    public function getAuthorId()
     {
         return $this->authorId;
     }
 
-    /**
-     * @return mixed
-     */
-    public function category()
+    public function getCategory()
     {
         return $this->category;
     }
 
-    /**
-     * @return mixed
-     */
-    public function content()
-    {
-        return $this->content;
-    }
-
-    /**
-     * @return string
-     */
-    public function title()
+    public function getTitle()
     {
         return $this->title;
+    }
+
+    public function getContent()
+    {
+        return $this->content;
     }
 }
  
