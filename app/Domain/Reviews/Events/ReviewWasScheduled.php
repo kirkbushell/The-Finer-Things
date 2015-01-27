@@ -1,19 +1,14 @@
 <?php
 namespace FinerThings\Domain\Reviews\Events;
 
+use Buttercup\Protects\DomainEvent;
+use Buttercup\Protects\IdentifiesAggregate;
 use Carbon\Carbon;
 use FinerThings\Domain\Reviews\ReviewId;
 
-class ReviewWasScheduled
+class ReviewWasScheduled implements DomainEvent
 {
-    /**
-     * @var ReviewId
-     */
     private $reviewId;
-
-    /**
-     * @var Carbon
-     */
     private $scheduledFor;
 
     /**
@@ -29,15 +24,16 @@ class ReviewWasScheduled
     /**
      * @return Carbon
      */
-    public function scheduledFor()
+    public function getScheduledFor()
     {
         return $this->scheduledFor;
     }
 
     /**
-     * @return ReviewId
+     * The Aggregate this event belongs to.
+     * @return IdentifiesAggregate
      */
-    public function reviewId()
+    public function getAggregateId()
     {
         return $this->reviewId;
     }

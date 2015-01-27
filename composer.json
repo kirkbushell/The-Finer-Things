@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "~5.0",
-		"rhumsaa/uuid": "~2.8@dev"
+		"rhumsaa/uuid": "~2.8@dev",
+		"buttercup/protects": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
@@ -17,7 +18,8 @@
 			"database"
 		],
 		"psr-4": {
-			"FinerThings\\": "app/"
+			"FinerThings\\": "app/",
+		  	"spec\\FinerThings\\": "spec/"
 		}
 	},
 	"autoload-dev": {
