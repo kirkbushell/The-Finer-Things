@@ -1,6 +1,7 @@
 <?php
 namespace FinerThings\Core\Events;
 
+use Buttercup\Protects\DomainEvent;
 use Buttercup\Protects\DomainEvents;
 
 trait EventRecorder
@@ -31,5 +32,15 @@ trait EventRecorder
     public function clearRecordedEvents()
     {
         $this->events = [];
+    }
+
+    /**
+     * Record that a new event has happened.
+     *
+     * @param DomainEvent $event
+     */
+    public function recordThat(DomainEvent $event)
+    {
+        $this->events[] = $event;
     }
 }

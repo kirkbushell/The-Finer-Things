@@ -1,38 +1,37 @@
 <?php
 namespace FinerThings\Domain\Reviews\Commands;
 
-use FinerThings\Domain\Reviews\AuthorId;
-
 class StartReviewCommand
 {
     private $title;
     private $category;
     private $authorId;
+    private $content;
 
-    function __construct($authorId, $category, $title)
+    function __construct($authorId, $category, $title, $content)
     {
-        $this->authorId = new AuthorId($authorId);
+        $this->authorId = $authorId;
         $this->category = $category;
         $this->title = $title;
+        $this->content = $content;
     }
 
-    /**
-     * @return mixed
-     */
-    public function category()
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    public function getCategory()
     {
         return $this->category;
     }
 
-    /**
-     * @return mixed
-     */
-    public function title()
+    public function getTitle()
     {
         return $this->title;
     }
 
-    public function authorId()
+    public function getAuthorId()
     {
         return $this->authorId;
     }

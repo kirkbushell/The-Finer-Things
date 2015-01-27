@@ -8,17 +8,24 @@ use FinerThings\Domain\Reviews\ReviewId;
 class ReviewWasStarted implements DomainEvent
 {
     private $reviewId;
+    private $authorId;
     private $title;
     private $content;
 
     /**
      * @param ReviewId $reviewId
      */
-    function __construct(ReviewId $reviewId, $title, $content)
+    function __construct(ReviewId $reviewId, AuthorId $authorId, $title, $content)
     {
         $this->reviewId = $reviewId;
+        $this->authorId = $authorId;
         $this->title = $title;
         $this->content = $content;
+    }
+
+    public function getAuthorId()
+    {
+        return $this->authorId;
     }
 
     public function getTitle()
