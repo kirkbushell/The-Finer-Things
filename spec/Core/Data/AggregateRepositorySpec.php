@@ -8,7 +8,7 @@ use Prophecy\Argument;
 class AggregateRepositorySpec extends ObjectBehavior
 {
     private $eventStore;
-    
+
     function let($eventStore)
     {
         $this->eventStore = $eventStore;

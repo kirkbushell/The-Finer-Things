@@ -6,7 +6,9 @@ use Buttercup\Protects\DomainEvent;
 use Buttercup\Protects\IsEventSourced;
 use Buttercup\Protects\RecordsEvents;
 use Buttercup\Protects\When;
+use Carbon\Carbon;
 use FinerThings\Core\Events\EventRecorder;
+use FinerThings\Domain\Reviews\Events\ReviewWasPublished;
 use FinerThings\Domain\Reviews\Events\ReviewWasSaved;
 use FinerThings\Domain\Reviews\Events\ReviewWasStarted;
 
@@ -20,6 +22,7 @@ final class Review implements RecordsEvents, IsEventSourced
     private $category;
     private $title;
     private $content;
+    private $publishedAt;
 
     /**
      * Review aggregate can only be constructed via a new review being started, or a review
@@ -65,6 +68,16 @@ final class Review implements RecordsEvents, IsEventSourced
     }
 
     /**
+     * Publish the requested review.
+     *
+     * @fires ReviewWasPublished
+     */
+    public function publish()
+    {
+        $this->recordThat(new ReviewWasPublished($this->getReviewId(), new Carbon));
+    }
+
+    /**
      * @param AggregateHistory $aggregateHistory
      * @return Review
      */
@@ -92,6 +105,9 @@ final class Review implements RecordsEvents, IsEventSourced
             case ReviewWasSaved::class:
                 $this->setReviewData($event);
                 break;
+            case ReviewWasPublished::class:
+                $this->whenReviewWasPublished($event);
+                break;
         }
     }
 
@@ -103,7 +119,7 @@ final class Review implements RecordsEvents, IsEventSourced
         $this->category = $event->getCategory();
         $this->title = $event->getTitle();
         $this->content = $event->getContent();
-        $this->authorId = $event->getAuthor();
+        $this->authorId = $event->getAuthorId();
     }
 
     public function getReviewId()
@@ -129,5 +145,15 @@ final class Review implements RecordsEvents, IsEventSourced
     public function getContent()
     {
         return $this->content;
+    }
+
+    public function getPublishedAt()
+    {
+        return $this->publishedAt;
+    }
+
+    private function whenReviewWasPublished(ReviewWasPublished $event)
+    {
+        $this->publishedAt = $event->getPublishedAt();
     }
 }

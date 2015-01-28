@@ -21,7 +21,7 @@ class SaveReviewCommand
         $this->content = $content;
     }
 
-    public function getAggregateId()
+    public function getReviewId()
     {
         return $this->reviewId;
     }

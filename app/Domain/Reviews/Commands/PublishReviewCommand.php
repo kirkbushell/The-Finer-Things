@@ -12,10 +12,7 @@ class PublishReviewCommand
         $this->reviewId = new ReviewId($reviewId);
     }
 
-    /**
-     * @return mixed
-     */
-    public function reviewId()
+    public function getReviewId()
     {
         return $this->reviewId;
     }

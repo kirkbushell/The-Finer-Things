@@ -4,10 +4,13 @@ namespace FinerThings\Core\Data;
 use Buttercup\Protects\IdentifiesAggregate;
 use Buttercup\Protects\RecordsEvents;
 use Buttercup\Protects\Tests\EventStore;
+use FinerThings\Core\Events\EventDispatcher;
 use FinerThings\Domain\Reviews\Review;
 
 class AggregateRepository
 {
+    use EventDispatcher;
+
     private $eventStore;
 
     function __construct(EventStore $eventStore)
@@ -23,7 +26,10 @@ class AggregateRepository
     public function add(RecordsEvents $aggregate)
     {
         $events = $aggregate->getRecordedEvents();
+
         $this->eventStore->commit($events);
+        $this->dispatch($events);
+
         $aggregate->clearRecordedEvents();
     }
 

@@ -1,8 +1,6 @@
 <?php
 namespace FinerThings\Domain\Reviews\Commands;
 
-use Buttercup\Protects\Tests\EventStore;
-use FinerThings\Core\Events\EventDispatcher;
 use FinerThings\Domain\Reviews\AuthorId;
 use FinerThings\Core\Data\AggregateRepository;
 use FinerThings\Domain\Reviews\Review;
