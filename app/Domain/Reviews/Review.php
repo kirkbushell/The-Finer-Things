@@ -106,9 +106,19 @@ final class Review implements RecordsEvents, IsEventSourced
         $this->authorId = $event->getAuthor();
     }
 
+    public function getReviewId()
+    {
+        return $this->reviewId;
+    }
+
     public function getAuthorId()
     {
         return $this->authorId;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
     }
 
     public function getTitle()
