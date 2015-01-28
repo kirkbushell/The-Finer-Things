@@ -1,7 +1,8 @@
 <?php
-namespace spec\FinerThings\Domain\Reviews\Data;
+namespace spec\FinerThings\Core\Data;
 
 use Buttercup\Protects\Tests\EventStore;
+use FinerThings\Core\Data\AggregateRepository;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -18,6 +19,6 @@ class AggregateRepositorySpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('FinerThings\Domain\Reviews\Data\ReviewRepository');
+        $this->shouldHaveType(AggregateRepository::class);
     }
 }

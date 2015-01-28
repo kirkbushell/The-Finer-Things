@@ -1052,12 +1052,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "343b2d40af2e82b5383acc4d4f528290d31494e7"
+                "reference": "f219ab878c4781ffcd1915b2e276a302f8ec935b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/343b2d40af2e82b5383acc4d4f528290d31494e7",
-                "reference": "343b2d40af2e82b5383acc4d4f528290d31494e7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f219ab878c4781ffcd1915b2e276a302f8ec935b",
+                "reference": "f219ab878c4781ffcd1915b2e276a302f8ec935b",
                 "shasum": ""
             },
             "require": {
@@ -1169,7 +1169,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-27 20:33:57"
+            "time": "2015-01-28 03:59:05"
         },
         {
             "name": "league/flysystem",
@@ -1560,12 +1560,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "e51fea633ac492efde59eb03c7a949bcb027f650"
+                "reference": "db58dd73233a7f9f22734262616ae038d5a7ef64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/e51fea633ac492efde59eb03c7a949bcb027f650",
-                "reference": "e51fea633ac492efde59eb03c7a949bcb027f650",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/db58dd73233a7f9f22734262616ae038d5a7ef64",
+                "reference": "db58dd73233a7f9f22734262616ae038d5a7ef64",
                 "shasum": ""
             },
             "require": {
@@ -1622,7 +1622,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2015-01-27 21:47:37"
+            "time": "2015-01-28 05:04:33"
         },
         {
             "name": "rhumsaa/uuid",
