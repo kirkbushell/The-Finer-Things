@@ -1,7 +1,7 @@
 <?php
 namespace FinerThings\Domain\Reviews\Commands;
 
-use FinerThings\Domain\Reviews\Data\ReviewWriter;
+use FinerThings\Core\Data\ReviewWriter;
 
 class PublishReviewCommandHandler
 {

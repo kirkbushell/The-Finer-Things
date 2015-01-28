@@ -1,18 +1,18 @@
 <?php
 namespace spec\FinerThings\Domain\Reviews\Commands;
 
-use Buttercup\Protects\Tests\EventStore;
 use FinerThings\Domain\Reviews\Commands\StartReviewCommand;
 use FinerThings\Domain\Reviews\AuthorId;
+use FinerThings\Core\Data\AggregateRepository;
 use PhpSpec\Laravel\LaravelObjectBehavior;
 use Prophecy\Argument;
 
 class StartReviewCommandHandlerSpec extends LaravelObjectBehavior
 {
-    function let($eventStore)
+    function let($repository)
     {
-        $eventStore->beADoubleOf(EventStore::class);
-        $this->beConstructedWith($eventStore);
+        $repository->beADoubleOf(AggregateRepository::class);
+        $this->beConstructedWith($repository);
     }
 
     function it_is_initializable()

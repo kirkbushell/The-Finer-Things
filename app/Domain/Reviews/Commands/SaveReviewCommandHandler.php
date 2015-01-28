@@ -1,26 +1,27 @@
 <?php
 namespace FinerThings\Domain\Reviews\Commands;
 
-use Buttercup\Protects\Tests\EventStore;
+use FinerThings\Core\Data\AggregateRepository;
 use FinerThings\Domain\Reviews\Review;
 
 class SaveReviewCommandHandler
 {
-    /**
-     * @var EventStore
-     */
-    private $eventStore;
+    private $repository;
 
-    public function __construct(EventStore $eventStore)
+    public function __construct(AggregateRepository $repository)
     {
-        $this->eventStore = $eventStore;
+        $this->repository = $repository;
     }
 
+    /**
+     * Handle the command by saving the updated review content via the aggregate repository
+     * and firing off the required domain events for this command.
+     *
+     * @param SaveReviewCommand $command
+     */
     public function handle(SaveReviewCommand $command)
     {
-        $review = Review::reconstituteFrom(
-            $this->getAggregateHistory($command->getReviewId())
-        );
+        $review = $this->repository->get(Review::class, $command->getReviewId());
 
         $review->save(
             $command->getAuthorId(),
@@ -29,11 +30,6 @@ class SaveReviewCommandHandler
             $command->getContent()
         );
 
-        $this->eventStore->commit($review->getRecordedEvents());
-    }
-
-    private function getAggregateHistory($reviewId)
-    {
-        return $this->eventStore->getAggregateHistoryFor($reviewId);
+        $this->repository->add($review);
     }
 }

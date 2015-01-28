@@ -4,17 +4,16 @@ namespace FinerThings\Domain\Reviews\Commands;
 use Buttercup\Protects\Tests\EventStore;
 use FinerThings\Core\Events\EventDispatcher;
 use FinerThings\Domain\Reviews\AuthorId;
+use FinerThings\Core\Data\AggregateRepository;
 use FinerThings\Domain\Reviews\Review;
 
 class StartReviewCommandHandler
 {
-    use EventDispatcher;
+    private $repository;
 
-    private $eventStore;
-
-    public function __construct(EventStore $eventStore)
+    public function __construct(AggregateRepository $repository)
     {
-        $this->eventStore = $eventStore;
+        $this->repository = $repository;
     }
 
     /**
@@ -31,7 +30,6 @@ class StartReviewCommandHandler
             $command->getContent()
         );
 
-        $this->eventStore->commit($review->getRecordedEvents());
-        $this->dispatch($review->getRecordedEvents());
+        $this->repository->add($review);
     }
 }
