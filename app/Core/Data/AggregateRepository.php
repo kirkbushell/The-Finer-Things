@@ -5,7 +5,7 @@ use Buttercup\Protects\IdentifiesAggregate;
 use Buttercup\Protects\RecordsEvents;
 use Buttercup\Protects\Tests\EventStore;
 use FinerThings\Core\Events\EventDispatcher;
-use FinerThings\Domain\Reviews\Review;
+use FinerThings\Domain\Reviews\Article;
 
 class AggregateRepository
 {
@@ -38,7 +38,7 @@ class AggregateRepository
      *
      * @param string $aggregate - Full class path to the aggregate in question
      * @param IdentifiesAggregate $id
-     * @return Review
+     * @return Article
      */
     public function get($aggregate, IdentifiesAggregate $id)
     {

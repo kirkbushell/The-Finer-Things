@@ -31,12 +31,7 @@ class DoctrineEventStore implements EventStore
     public function commit(DomainEvents $events)
     {
         foreach ($events as $e) {
-            $event = new Event(
-                $e->getAggregateId(),
-                class_basename($e),
-                serialize($e),
-                new Carbon
-            );
+            $event = $this->buildEvent($e);
 
             $this->entityManager->persist($event);
         }
@@ -88,5 +83,21 @@ class DoctrineEventStore implements EventStore
         return array_map(function($event) {
             return $event->getEvent();
         }, $eventHistory);
+    }
+
+    /**
+     * Construct a new event object to be persisted later.
+     *
+     * @param DomainEvent $domainEvent
+     * @return Event
+     */
+    protected function buildEvent(DomainEvent $domainEvent)
+    {
+        return new Event(
+            $domainEvent->getAggregateId(),
+            class_basename($domainEvent),
+            serialize($domainEvent),
+            new Carbon
+        );
     }
 }
