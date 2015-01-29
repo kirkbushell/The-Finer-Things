@@ -1,6 +1,18 @@
 {
+  "name": "thefinerthings",
+  "description": "This is just a dependency management package file.",
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "laravel-elixir": "*"
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
+    "gulp-exec": "^2.1.0",
+    "gulp-jshint": "^1.8.4",
+    "gulp-minify-css": "~0.2.0",
+    "gulp-notify": "^1.4.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "~0.2.0",
+    "gulp-rsync": "0.0.4",
+    "gulp-uglify": "^0.3.1",
+    "gulp-util": "3.0.2",
+    "gulp-watch": "~2.0.0"
   }
 }

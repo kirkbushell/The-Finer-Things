@@ -1,0 +1,46 @@
+body {
+	color: $colour-font-primary;
+	font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+h1,
+.h1 {
+	font-size: em(36);
+}
+
+h2,
+.h2 {
+	font-size: em(20);
+}
+
+h3,
+.h3 {
+	font-size: em(16);
+}
+
+.quote,
+.intro {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+	@include transition(color, 0.25s);
+
+	color: inherit;
+	text-decoration: none;
+
+	&:hover {
+		color: $colour-link-hover;
+	}
+}
+
+p {
+	line-height: 170%;
+}

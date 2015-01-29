@@ -1,3 +1,5 @@
 /vendor
 .env
 .idea/*
+node_modules/
+.sass-cache/

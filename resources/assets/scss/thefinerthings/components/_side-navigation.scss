@@ -1,0 +1,44 @@
+.side-navigation {
+	aside {
+		h3 {
+			background: rgb(49, 49, 49);
+			color: rgb(246, 246, 246);
+			font-size: 90%;
+			font-weight: normal;
+			margin: 0 0 15px;
+			padding: 15px;
+		}
+	}
+
+	ul.categories {
+		list-style: none;
+
+		li {
+			margin-bottom: 15px;
+
+			a {
+				color: rgb(204, 204, 204);
+
+				&:hover {
+					color: $colour-link-hover;
+				}
+			}
+
+			span {
+				display: block;
+				overflow: hidden;
+			}
+
+			img {
+				width: 267px;
+			}
+
+			p {
+				font-family: Montserrat;
+				font-size: em(12);
+				margin: 0;
+				text-transform: uppercase;
+			}
+		}
+	}
+}

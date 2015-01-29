@@ -8,7 +8,8 @@
 		"laravel/framework": "~5.0",
 		"rhumsaa/uuid": "~2.8@dev",
 		"buttercup/protects": "dev-master",
-		"mitchellvanw/laravel-doctrine": "dev-master"
+		"mitchellvanw/laravel-doctrine": "dev-master",
+		"adamgoose/laravel-annotations": "~5.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

@@ -144,6 +144,7 @@ return [
 		'FinerThings\Core\Providers\ConfigServiceProvider',
 		'FinerThings\Core\Providers\EventServiceProvider',
 		'FinerThings\Core\Providers\RouteServiceProvider',
+		'FinerThings\Core\Providers\AnnotationsServiceProvider'
 
 	],
 
