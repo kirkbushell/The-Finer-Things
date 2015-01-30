@@ -35,10 +35,18 @@ class ConfigCategoryRepository
         }
     }
 
+    /**
+     * Search for a given category based on its id.
+     *
+     * @param CategoryId $categoryId
+     * @return mixed
+     */
     public function withId(CategoryId $categoryId)
     {
         foreach (static::$categories as $category) {
-
+            if ($category->getCategoryId()->equals($categoryId)) {
+                return $category;
+            }
         }
     }
 
