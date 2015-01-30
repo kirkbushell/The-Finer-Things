@@ -2,6 +2,7 @@
 namespace FinerThings\Core\Providers;
 
 use Adamgoose\AnnotationsServiceProvider as ServiceProvider;
+use FinerThings\Http\Controllers\ArticleController;
 use FinerThings\Http\Controllers\HomeController;
 
 class AnnotationsServiceProvider extends ServiceProvider
@@ -19,7 +20,8 @@ class AnnotationsServiceProvider extends ServiceProvider
      * @var array
      */
     protected $scanRoutes = [
-        HomeController::class
+        HomeController::class,
+        ArticleController::class
     ];
 
     /**

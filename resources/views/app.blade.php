@@ -27,7 +27,11 @@
 	</section>
 
 	<section id="nav">
-
+		<a href="{{ route('home') }}">Home</a>
+		<a href="">Cigars</a>
+		<a href="">Wines</a>
+		<a href="">Whisky / Scotch</a>
+		<a href="{{ route('article.create') }}">Submit an article</a>
 	</section>
 
 	<section id="main">

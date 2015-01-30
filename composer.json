@@ -5,9 +5,10 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "~5.0",
+	  	"laravel/framework": "5.0.*@dev",
 		"rhumsaa/uuid": "~2.8@dev",
 		"buttercup/protects": "dev-master",
+	  	"illuminate/html": "dev-master",
 		"mitchellvanw/laravel-doctrine": "dev-master",
 		"adamgoose/laravel-annotations": "~5.0"
 	},

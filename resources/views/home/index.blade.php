@@ -31,5 +31,7 @@
 		</section>
 	</div>
 
-	@include('partials.side-navigation')
+	<div class="sidebar">
+		@include('partials.categories')
+	</div>
 @endsection

@@ -1,0 +1,12 @@
+ul {
+	list-style: none;
+
+	&.list {
+		list-style: decimal;
+
+		li {
+			margin: 0 0 0 25px;
+			position: relative;
+		}
+	}
+}

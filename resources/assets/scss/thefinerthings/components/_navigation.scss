@@ -1,0 +1,24 @@
+#nav {
+	background: #e6e6e6;
+	font-size: 0;
+	text-align: center;
+
+	a {
+		color: inherit;
+		display: inline-block;
+		font-family: Montserrat;
+		font-size: 13px;
+		padding: em(13) em(21);
+		margin: 0;
+		text-transform: uppercase;
+
+		&:hover {
+			background: #fff;
+			color: #c08826;
+		}
+
+		& + a {
+			border-left: 1px solid #fff;
+		}
+	}
+}
