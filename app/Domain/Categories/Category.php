@@ -5,40 +5,35 @@ use Illuminate\Support\Str;
 
 class Category
 {
-    /**
-     * @var string
-     */
     private $title;
+    private $categoryId;
 
     /**
      * @param string $title
      */
-    public function __construct($title)
+    public function __construct(CategoryId $categoryId, $title)
     {
+        $this->categoryId = $categoryId;
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
-    public function title()
+    public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * @return string
-     */
-    public function slug()
+    public function getCategoryId()
     {
-        return Str::slug($this->title());
+        return $this->categoryId;
     }
 
-    /**
-     * @return string
-     */
+    public function getSlug()
+    {
+        return Str::slug($this->getTitle());
+    }
+
     public function __toString()
     {
-        return $this->title();
+        return $this->getTitle();
     }
 }

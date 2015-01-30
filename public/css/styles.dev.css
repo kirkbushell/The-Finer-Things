@@ -341,7 +341,7 @@ li {
   padding: 0; }
 
 body {
-  color: #2a2a2a;
+  color: #313131;
   font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 h1,
@@ -420,14 +420,20 @@ ul.form {
     font-style: italic; }
 
 .buttons {
-  text-align: center; }
+  float: left;
+  display: block;
+  margin-right: 3.13054%;
+  width: 74.21737%;
+  float: right; }
+  .buttons:last-child {
+    margin-right: 0; }
 
 input,
 select,
 textarea {
-  border: none;
+  background: none;
+  border: 1px solid #e6e6e6;
   border-radius: 2px;
-  background: #F6F6F6;
   outline: none;
   padding: 8px 10px;
   width: 100%;
@@ -435,7 +441,7 @@ textarea {
   input:focus,
   select:focus,
   textarea:focus {
-    background: #EBEEF1; }
+    border: 1px solid #c08826; }
 
 input[type=submit] {
   -webkit-transition: background, 0.25s;
@@ -445,6 +451,8 @@ input[type=submit] {
   color: #f6f6f6;
   display: inline-block;
   width: auto; }
+  input[type=submit]:hover {
+    background: #c08826; }
 
 ul {
   list-style: none; }

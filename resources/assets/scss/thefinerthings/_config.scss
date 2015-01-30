@@ -1,10 +1,18 @@
+// Colours
+$colour-primary: #313131;
+$colour-secondary: #c08826;
+$colour-tertiary: #e6e6e6;
+
 // Backgrounds
 $colour-background-primary: #fff;
-$colour-background-secondary: #e6e6e6;
+$colour-background-secondary: $colour-tertiary;
 
 // Link colours
-$colour-link-hover: #c08826;
+$colour-link-hover: $colour-secondary;
 
 // Font colours
-$colour-font-primary: rgb(42, 42, 42);
+$colour-font-primary: $colour-primary;
 
+// Borders
+$colour-border-primary: $colour-tertiary;
+$colour-border-focus: $colour-secondary;

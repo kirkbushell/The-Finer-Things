@@ -36,30 +36,36 @@ ul.form {
 }
 
 .buttons {
-	text-align: center;
+	@include span-columns(9);
+
+	float: right;
 }
 
 input,
 select,
 textarea {
-	border: none;
+	background: none;
+	border: 1px solid $colour-tertiary;
 	border-radius: 2px;
-	background: #F6F6F6;
 	outline: none;
 	padding: 8px 10px;
 	width: 100%;
 	-webkit-appearance: none;
 
 	&:focus {
-		background: #EBEEF1;
+		border: 1px solid $colour-secondary;
 	}
 }
 
 input[type=submit] {
 	@include transition(background, 0.25s);
 
-	background: #313131;
+	background: $colour-primary;
 	color: #f6f6f6;
 	display: inline-block;
 	width: auto;
+
+	&:hover {
+		background: $colour-secondary;
+	}
 }

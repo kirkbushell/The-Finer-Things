@@ -1,27 +1,32 @@
 <?php
 namespace spec\FinerThings\Domain\Categories;
 
+use FinerThings\Domain\Categories\Category;
+use FinerThings\Domain\Categories\CategoryId;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class CategorySpec extends ObjectBehavior
 {
+    function let()
+    {
+        $this->beConstructedWith(new CategoryId('ljsdflkjsdf'), 'Cigars');
+    }
+
     function it_is_initializable()
     {
-        $this->beConstructedWith('cigars');
-        $this->shouldHaveType('FinerThings\Domain\Categories\Category');
+        $this->shouldHaveType(Category::class);
     }
 
     function it_should_return_the_title()
     {
-        $this->beConstructedWith('cigars');
-        $this->title()->shouldReturn('cigars');
-        $this->__toString()->shouldReturn('cigars');
+        $this->getTitle()->shouldReturn('Cigars');
+        $this->__toString()->shouldReturn('Cigars');
     }
 
     function it_should_generate_a_slug()
     {
-        $this->beConstructedWith('Cigars & Wines');
-        $this->slug()->shouldReturn('cigars-wines');
+        $this->beConstructedWith(new Categoryid('lkjsdlfkjsdf'), 'Cigars & Wines');
+        $this->getSlug()->shouldReturn('cigars-wines');
     }
 }
