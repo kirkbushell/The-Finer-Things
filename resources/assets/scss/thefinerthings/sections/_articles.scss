@@ -4,6 +4,15 @@
 		margin-bottom: 25px;
 		overflow: hidden;
 
+		.article-meta {
+			color: rgb(204, 204, 204);
+			font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size: em(11.07);
+			font-weight: normal;
+			letter-spacing: 1.1px;
+			text-transform: uppercase;
+		}
+
 		.image {
 			float: left;
 			height: 255px;
@@ -21,6 +30,37 @@
 
 		.entry {
 			margin-bottom: 25px;
+		}
+	}
+}
+
+.article {
+	article {
+		header {
+			.article-meta {
+				color: $colour-tertiary;
+				font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				font-size: em(16);
+				font-weight: normal;
+				letter-spacing: 1.6px;
+				text-transform: uppercase;
+			}
+		}
+
+		#articleExcerpt {
+			font-family: Georgia, 'Times New Roman', Times, serif;
+			font-size: em(20);
+			font-style: italic;
+			line-height: em(28);
+
+			&:after {
+				content: "";
+				height: 3px;
+				width: 4em;
+				margin-top: 1.300em;
+				display: block;
+				background: #c08826;
+			}
 		}
 	}
 }
@@ -46,15 +86,6 @@
 			background: #f6f6f6;
 		}
 	}
-}
-
-.article-meta {
-	color: rgb(204, 204, 204);
-	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: em(11.07);
-	font-weight: normal;
-	letter-spacing: 1.1px;
-	text-transform: uppercase;
 }
 
 .section-header {
@@ -100,4 +131,12 @@
 			z-index: -1;
 		}
 	}
+}
+
+.article-submission {
+	@include span-columns(6);
+}
+
+.article-preview {
+	@include span-columns(6);
 }

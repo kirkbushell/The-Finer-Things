@@ -25,4 +25,9 @@ class ConfigCategoryRepositorySpec extends LaravelObjectBehavior
         $category->shouldHaveType(Category::class);
         $category->getTitle()->shouldReturn('Wine');
     }
+
+    function it_should_return_all_categories()
+    {
+        $this->all()->shouldHaveCount(3);
+    }
 }

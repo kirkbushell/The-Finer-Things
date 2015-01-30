@@ -66,4 +66,14 @@ class ConfigCategoryRepository
 
         return $categories;
     }
+
+    /**
+     * Returns all the categories within the system.
+     *
+     * @return array
+     */
+    public function all()
+    {
+        return static::$categories;
+    }
 }
