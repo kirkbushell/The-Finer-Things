@@ -527,7 +527,7 @@ body {
     padding: 0.8125em 1.3125em;
     margin: 0;
     text-transform: uppercase; }
-    #nav a:hover {
+    #nav a:hover, #nav a.active {
       background: #fff;
       color: #c08826; }
     #nav a + a {

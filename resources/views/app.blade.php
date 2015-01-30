@@ -31,7 +31,7 @@
 		<a href="">Cigars</a>
 		<a href="">Wines</a>
 		<a href="">Whisky / Scotch</a>
-		<a href="{{ route('article.create') }}">Submit an article</a>
+		<a href="{{ route('article.create') }}"{!! Request::segment(1) == 'submit' ? ' class="active"' : '' !!}>Submit an article</a>
 	</section>
 
 	<section id="main">

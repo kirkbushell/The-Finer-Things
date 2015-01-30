@@ -12,7 +12,8 @@
 		margin: 0;
 		text-transform: uppercase;
 
-		&:hover {
+		&:hover,
+		&.active {
 			background: #fff;
 			color: #c08826;
 		}
