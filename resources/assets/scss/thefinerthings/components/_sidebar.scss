@@ -41,4 +41,16 @@
 			}
 		}
 	}
+
+	.info {
+		.content {
+			background: $colour-tertiary;
+			font-size: 13px;
+			line-height: 22px;
+
+			ol {
+				margin: 20px 15px 20px -5px;
+			}
+		}
+	}
 }

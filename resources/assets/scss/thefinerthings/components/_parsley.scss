@@ -5,7 +5,7 @@ textarea.parsley-error {
 }
 
 .parsley-errors-list {
-	@include transition(all .25s ease-in);
+	@include transition(max-height .25s ease-in);
 
 	font-size: 13px;
 	list-style-type: none;

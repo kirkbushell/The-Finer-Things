@@ -17,13 +17,13 @@
 			</div>
 		@endif
 
-		{!! Form::open(['url' => '/auth/register']) !!}
+		{!! Form::open(['url' => '/auth/register', 'autocomplete' => 'off']) !!}
 			{!! Form::hidden('_token', csrf_token()) !!}
 			<ul class="form">
 				<li class="form-field horizontal">
 					<div class="label">{!! Form::label('name') !!}</div>
 					<div class="field">
-						{!! Form::text('name', null, ['required']) !!}
+						{!! Form::text('name', null, ['required', 'minlength' => 3]) !!}
 					</div>
 				</li>
 				<li class="form-field horizontal">
@@ -41,24 +41,42 @@
 				<li class="form-field horizontal">
 					<div class="label">{!! Form::label('password') !!}</div>
 					<div class="field">
-						{!! Form::password('password', null, ['required', 'data-parsley-equal-to' => '#email']) !!}
+						{!! Form::password('password', ['required']) !!}
 					</div>
 				</li>
 				<li class="form-field horizontal">
 					<div class="label">{!! Form::label('password_confirmation', 'Confirm') !!}</div>
 					<div class="field">
-						{!! Form::password('password_confirmation', null, ['required', 'data-parsley-equal-to' => '#password', 'placeholder' => 'Please confirm your password']) !!}
+						{!! Form::password('password_confirmation', ['required', 'data-parsley-equal-to' => '#password', 'placeholder' => 'Please confirm your password']) !!}
 					</div>
 				</li>
 			</ul>
 			<div class="buttons">
-				{!! Form::submit('Register') !!}
+				{!! Form::submit('Register') !!} &nbsp; <a href="/auth/login">Already have an account? Login.</a>
 			</div>
 		{!! Form::close() !!}
 
 		<script type="text/javascript">
 			$('form').parsley();
 		</script>
+	</div>
+
+	<div class="sidebar">
+		<aside class="widget info">
+			<h3 class="widget-title">
+				Benefits
+			</h3>
+
+			<div class="content">
+				<ol>
+					<li>Regular special offers to our suppliers and promoters.</li>
+					<li>Submit your own articles.</li>
+					<li>Provide feedback on all our articles.</li>
+					<li>Get involved in our online discussions and polls.</li>
+					<li>Make new connections with fellow lovers of The Finer Things in life.</li>
+				</ol>
+			</div>
+		</aside>
 	</div>
 </div>
 @endsection

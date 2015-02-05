@@ -573,6 +573,12 @@ body {
       font-size: 0.75em;
       margin: 0;
       text-transform: uppercase; }
+.sidebar .info .content {
+  background: #e6e6e6;
+  font-size: 13px;
+  line-height: 22px; }
+  .sidebar .info .content ol {
+    margin: 20px 15px 20px -5px; }
 
 input.parsley-error,
 select.parsley-error,
@@ -580,9 +586,9 @@ textarea.parsley-error {
   color: #B94A48; }
 
 .parsley-errors-list {
-  -webkit-transition: all 0.25s ease-in;
-  -moz-transition: all 0.25s ease-in;
-  transition: all 0.25s ease-in;
+  -webkit-transition: max-height 0.25s ease-in;
+  -moz-transition: max-height 0.25s ease-in;
+  transition: max-height 0.25s ease-in;
   font-size: 13px;
   list-style-type: none;
   max-height: 0;

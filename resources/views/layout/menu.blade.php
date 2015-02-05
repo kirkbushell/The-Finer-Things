@@ -5,6 +5,6 @@
     <a href="">Whisky / Scotch</a>
     <a href="{{ route('article.create') }}"{!! Request::segment(1) == 'submit' ? ' class="active"' : '' !!}>Submit an article</a>
     @if (!Auth::check())
-        <a href="/auth/register"{!! Request::segment(1) == 'auth' ? ' class="active"' : '' !!}>Register</a>
+        <a href="/auth/register"{!! Request::segment(1) == 'auth' && Request::segment(2) == 'register' ? ' class="active"' : '' !!}>Register</a>
     @endif
 </section>
