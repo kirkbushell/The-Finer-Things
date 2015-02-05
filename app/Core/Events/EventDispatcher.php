@@ -2,7 +2,7 @@
 namespace FinerThings\Core\Events;
 
 use Buttercup\Protects\DomainEvents;
-use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Event as EventFacade;
 
 trait EventDispatcher
 {
@@ -14,7 +14,7 @@ trait EventDispatcher
     protected function dispatch(DomainEvents $events)
     {
         foreach ($events as $event) {
-            Event::fire($event);
+            EventFacade::fire($event);
         }
     }
 }

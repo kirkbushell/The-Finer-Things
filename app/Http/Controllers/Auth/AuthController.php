@@ -1,12 +1,13 @@
-<?php namespace FinerThings\Http\Controllers\Auth;
+<?php
+namespace FinerThings\Http\Controllers\Auth;
 
 use FinerThings\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class AuthController extends Controller {
-
+class AuthController extends Controller
+{
 	/*
 	|--------------------------------------------------------------------------
 	| Registration & Login Controller
@@ -20,6 +21,8 @@ class AuthController extends Controller {
 
 	use AuthenticatesAndRegistersUsers;
 
+	protected $redirectTo = null;
+
 	/**
 	 * Create a new authentication controller instance.
 	 *
@@ -31,8 +34,8 @@ class AuthController extends Controller {
 	{
 		$this->auth = $auth;
 		$this->registrar = $registrar;
+		$this->redirectTo = route('home');
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
-
 }

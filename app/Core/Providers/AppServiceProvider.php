@@ -1,11 +1,8 @@
 <?php
 namespace FinerThings\Core\Providers;
 
-use Buttercup\Protects\Tests\EventStore;
-use FinerThings\Core\EventStore\DoctrineEventStore;
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Html\FormFacade;
-use Illuminate\Html\HtmlFacade;
+use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
+use FinerThings\Domain\Identity\Registrar;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app->singleton(EventStore::class, DoctrineEventStore::class);
+		$this->app->singleton(RegistrarContract::class, Registrar::class);
 	}
 }
 

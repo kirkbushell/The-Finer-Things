@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => 'App\User',
+	'model' => \FinerThings\Domain\Identity\Data\User::class,
 
 	/*
 	|--------------------------------------------------------------------------

@@ -13,7 +13,7 @@ var input  = 'resources/assets/',
     output = 'public/';
 
 var scripts = [
-
+    input + 'js/**'
 ];
 
 var styles = [
@@ -35,9 +35,9 @@ gulp.task('scripts', function() {
  return gulp.src(scripts)
      .pipe(jshint())
      .pipe(jshint.reporter('default'))
-     .pipe(concat('javascript.dev.js'))
+     .pipe(concat('scripts.dev.js'))
      .pipe(gulp.dest(output + 'js'))
-     .pipe(rename('javascript.min.js'))
+     .pipe(rename('scripts.min.js'))
      .pipe(uglify({mangle: true}))
      .pipe(gulp.dest(output + 'js'))
      .pipe(notify({ message: 'Javascript files compiled.' }));

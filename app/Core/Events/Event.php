@@ -1,31 +1,35 @@
 <?php
 namespace FinerThings\Core\Events;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Class Event
  *
  * @package FinerThings\Core\Events
- * @Entity
+ * @Orm\Table("events")
+ * @ORM\Entity()
  */
 class Event
 {
     /**
-     * @Column(name="aggregate_id", type="string", length=36, nullable=false)
+     * @ORM\Id
+     * @ORM\Column(name="aggregate_id", type="string", length=36, nullable=false)
      */
     private $aggregateId;
 
     /**
-     * @Column(type="string", nullable=false)
+     * @ORM\Column(type="string", nullable=false)
      */
     private $event;
 
     /**
-     * @Column(type="text", nullable=false)
+     * @ORM\Column(type="text", nullable=false)
      */
     private $data;
 
     /**
-     * @Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $date;
 

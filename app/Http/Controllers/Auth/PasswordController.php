@@ -1,4 +1,5 @@
-<?php namespace FinerThings\Http\Controllers\Auth;
+<?php
+namespace FinerThings\Http\Controllers\Auth;
 
 use FinerThings\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;

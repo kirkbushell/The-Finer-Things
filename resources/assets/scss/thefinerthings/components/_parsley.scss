@@ -1,0 +1,19 @@
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+	color: #B94A48;
+}
+
+.parsley-errors-list {
+	@include transition(all .25s ease-in);
+
+	font-size: 13px;
+	list-style-type: none;
+	max-height: 0;
+	margin: 8px 0 3px;
+	padding: 0;
+}
+
+.parsley-errors-list.filled {
+	max-height: 50px;
+}

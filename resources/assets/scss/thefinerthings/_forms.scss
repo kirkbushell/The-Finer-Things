@@ -41,7 +41,10 @@ ul.form {
 	float: right;
 }
 
-input,
+input[type=email],
+input[type=text],
+input[type=password],
+input[type=submit],
 select,
 textarea {
 	background: none;
@@ -53,8 +56,13 @@ textarea {
 	-webkit-appearance: none;
 
 	&:focus {
-		border: 1px solid $colour-secondary;
+		border: 1px solid lighten($colour-primary, 50%);
 	}
+}
+
+input[type=checkbox] {
+	height: 15px;
+	width: 15px;
 }
 
 input[type=submit] {

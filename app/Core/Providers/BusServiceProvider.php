@@ -16,9 +16,7 @@ class BusServiceProvider extends ServiceProvider {
 	{
 		$dispatcher->mapUsing(function($command)
 		{
-			return Dispatcher::simpleMapping(
-				$command, 'FinerThings\Commands', 'FinerThings\Handlers\Commands'
-			);
+			return preg_replace('/Command$/', 'CommandHandler@handle', get_class($command));
 		});
 	}
 

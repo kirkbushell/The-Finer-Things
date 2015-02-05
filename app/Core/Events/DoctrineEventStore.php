@@ -2,6 +2,7 @@
 namespace FinerThings\Core\EventStore;
 
 use Buttercup\Protects\AggregateHistory;
+use Buttercup\Protects\DomainEvent;
 use Buttercup\Protects\DomainEvents;
 use Buttercup\Protects\IdentifiesAggregate;
 use Buttercup\Protects\Tests\EventStore;

@@ -1,63 +1,36 @@
 @extends('app')
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+	<div class="content-area">
+		<section class="section-header">
+			<h3 class="section-title">Login</h3>
+		</section>
 
-					<form class="form-horizontal" role="form" method="POST" action="/auth/login">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
-									Login
-								</button>
-
-								<a href="/password/email">Forgot Your Password?</a>
-							</div>
-						</div>
-					</form>
-				</div>
+		{!! Form::open(['url' => route('article.store'), 'id' => 'createArticle']) !!}
+			{!! Form::hidden('_token', csrf_token()) !!}
+			<ul class="form">
+				<li class="form-field horizontal">
+					<div class="label">{!! Form::label('email') !!}</div>
+					<div class="field">
+						{!! Form::text('email') !!}
+					</div>
+				</li>
+				<li class="form-field horizontal">
+					<div class="label">{!! Form::label('password') !!}</div>
+					<div class="field">
+						{!! Form::password('password') !!}
+					</div>
+				</li>
+				<li class="form-field horizontal">
+					<div class="label">&nbsp;</div>
+					<div class="field">
+						{!! Form::checkbox('remember') !!} {!! Form::label('remember', 'Remember me') !!}
+					</div>
+				</li>
+			</ul>
+			<div class="buttons">
+				{!! Form::submit('Login') !!} &nbsp; <a href="/password/email">Forgot Your Password?</a>
 			</div>
-		</div>
+		{!! Form::close() !!}
 	</div>
-</div>
 @endsection

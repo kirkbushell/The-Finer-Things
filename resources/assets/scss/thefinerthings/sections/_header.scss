@@ -1,0 +1,35 @@
+.account-box {
+	color: rgb(246, 246, 246);
+	font-size: 11px;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	.user {
+		.separator {
+			color: rgb(102, 102, 102);
+		}
+	}
+}
+
+#header {
+	background: rgb(49, 49, 49);
+	padding: 25px 0 30px;
+	text-align: center;
+
+	h2 {
+		color: rgb(246, 246, 246);
+		font-family: 'Dancing Script', cursive;
+		font-size: 36px;
+		font-weight: normal;
+		line-height: 60px;
+		margin: 0;
+		text-transform: none;
+	}
+
+	.description {
+		color: rgb(102, 102, 102);
+		font-family: 'Montserrat';
+		text-transform: uppercase;
+	}
+}

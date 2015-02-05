@@ -8,7 +8,8 @@ function Previewer(form, editor) {
 	});
 
 	category.change(function() {
-		$('.article-meta .category').text($(this).val());
+		var text = category.find('option:selected').text();
+		$('.article-meta .category').text(text);
 	});
 
 	title.keyup(function() {

@@ -15,7 +15,7 @@
                 <li class="form-field horizontal">
                     <div class="label">{!! Form::label('category') !!}</div>
                     <div class="field">
-                        {!! Form::select('category', ['' => 'Select']) !!}
+                        {!! Form::categorySelect('category', 'category') !!}
                         <div class="hint">Select an appropriate category.</div>
                     </div>
                 </li>

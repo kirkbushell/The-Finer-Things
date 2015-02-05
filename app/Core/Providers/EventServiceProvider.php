@@ -16,13 +16,13 @@ class EventServiceProvider extends ServiceProvider {
 	 */
 	protected $listen = [
 		ArticleWasStarted::class => [
-			'FinerThings\Domain\Articles\Listeners\Articles@whenArticleWasStarted'
+			'FinerThings\Domain\Articles\Projections\ArticleIndex@whenArticleWasStarted'
 		],
 		ArticleWasSaved::class => [
-			'FinerThings\Domain\Articles\Listeners\Articles@whenArticleWasSaved'
+			'FinerThings\Domain\Articles\Projections\ArticleIndex@whenArticleWasSaved'
 		],
 		ArticleWasPublished::class => [
-			'FinerThings\Domain\Articles\Listeners\Articles@whenArticleWasPublished'
+			'FinerThings\Domain\Articles\Projections\ArticleIndex@whenArticleWasPublished'
 		]
 	];
 

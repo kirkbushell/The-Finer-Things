@@ -3,36 +3,18 @@ namespace FinerThings\Domain\Articles\Commands;
 
 class StartArticleCommand
 {
-    private $title;
-    private $category;
-    private $authorId;
-    private $content;
+    public $title;
+    public $category;
+    public $authorId;
+    public $content;
+    public $excerpt;
 
-    function __construct($authorId, $category, $title, $content)
+    function __construct($authorId, $categoryId, $title, $excerpt, $content)
     {
         $this->authorId = $authorId;
-        $this->category = $category;
+        $this->category = $categoryId;
         $this->title = $title;
         $this->content = $content;
-    }
-
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function getAuthorId()
-    {
-        return $this->authorId;
+        $this->excerpt = $excerpt;
     }
 }

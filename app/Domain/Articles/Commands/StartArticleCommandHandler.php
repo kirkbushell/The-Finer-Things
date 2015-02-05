@@ -1,17 +1,15 @@
 <?php
 namespace FinerThings\Domain\Articles\Commands;
 
-use FinerThings\Domain\Articles\AuthorId;
-use FinerThings\Core\Data\AggregateRepository;
-use FinerThings\Domain\Articles\Article;
+use FinerThings\Domain\Articles\Data\Articles;
 
 class StartArticleCommandHandler
 {
-    private $repository;
+    private $articles;
 
-    public function __construct(AggregateRepository $repository)
+    public function __construct(Articles $articles)
     {
-        $this->repository = $repository;
+        $this->articles = $articles;
     }
 
     /**
@@ -21,13 +19,12 @@ class StartArticleCommandHandler
      */
     public function handle(StartArticleCommand $command)
     {
-        $article = Article::start(
-            new AuthorId($command->getAuthorId()),
-            $command->getCategory(),
-            $command->getTitle(),
-            $command->getContent()
-        );
+        $article = new Article;
+        $article->categoryId = $command->categoryId;
+        $article->title = $command->title;
+        $article->excerpt = $command->excerpt;
+        $article->content = $command->content;
 
-        $this->repository->add($article);
+        $this->repository->save($article);
     }
 }

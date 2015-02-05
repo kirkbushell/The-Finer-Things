@@ -6,13 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>The Finer Things - Articles, reviews and interviews regarding Wine, Cigars, Scotch/Whisky, Cafes/Restaurants...</title>
 
-	<link href="/css/styles.dev.css" rel="stylesheet">
-
-	<!-- Fonts -->
+	<link href="/css/styles.{!! app()->environment() == 'production' ? 'min' : 'dev' !!}.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans|Montserrat|Dancing+Script' rel='stylesheet' type='text/css'>
-
-	<!-- jQuery requirement -->
 	<script src="/js/jquery-1.11.2.min.js"></script>
+	<script src="/js/scripts.{!! app()->environment() == 'production' ? 'min' : 'dev' !!}.js"></script>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,19 +20,25 @@
 </head>
 <body>
 	<section id="header">
-		<h2>The Finer Things.</h2>
-		<div class="description">
-			Articles & reviews on cigars, wine, scotch & whisky
+		<div class="container">
+			<h2><a href="{!! route('home') !!}">The Finer Things.</a></h2>
+			<div class="description">
+				Articles & reviews on cigars, wine, scotch & whisky
+			</div>
+
+			<div class="account-box">
+				@if (Auth::check())
+					<div class="user">
+						{{  Auth::user()->name }} <span class="separator">|</span> <a href="/auth/logout">Logout</a>
+					</div>
+				@else
+					Have an account? <a href="/auth/login">Login</a>.
+				@endif
+			</div>
 		</div>
 	</section>
 
-	<section id="nav">
-		<a href="{{ route('home') }}">Home</a>
-		<a href="">Cigars</a>
-		<a href="">Wines</a>
-		<a href="">Whisky / Scotch</a>
-		<a href="{{ route('article.create') }}"{!! Request::segment(1) == 'submit' ? ' class="active"' : '' !!}>Submit an article</a>
-	</section>
+	@include('layout.menu')
 
 	<section id="main">
 		<div class="content">

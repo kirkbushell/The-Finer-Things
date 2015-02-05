@@ -1,28 +1,12 @@
 <?php
 namespace FinerThings\Domain\Articles\Events;
 
-use Buttercup\Protects\DomainEvent;
-use Carbon\Carbon;
-use FinerThings\Domain\Articles\ArticleId;
-
-class ArticleWasPublished implements DomainEvent
+class ArticleWasPublished
 {
-    private $articleId;
-    private $publishedAt;
+    public $article;
 
-    function __construct(ArticleId $articleId, Carbon $publishedAt)
+    function __construct(Article $article)
     {
-        $this->articleId = $articleId;
-        $this->publishedAt = $publishedAt;
-    }
-
-    public function getAggregateId()
-    {
-        return $this->articleId;
-    }
-
-    public function getPublishedAt()
-    {
-        return $this->publishedAt;
+        $this->article = $article;
     }
 }

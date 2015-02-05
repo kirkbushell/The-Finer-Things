@@ -137,6 +137,8 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
+		'Laravel\Socialite\SocialiteServiceProvider',
+
 		/*
 		 * Application Service Providers...
 		 */
@@ -145,7 +147,8 @@ return [
 		'FinerThings\Core\Providers\ConfigServiceProvider',
 		'FinerThings\Core\Providers\EventServiceProvider',
 		'FinerThings\Core\Providers\RouteServiceProvider',
-		'FinerThings\Core\Providers\AnnotationsServiceProvider'
+		'FinerThings\Core\Providers\AnnotationsServiceProvider',
+		'FinerThings\Core\Providers\MacroServiceProvider'
 
 	],
 
@@ -172,6 +175,7 @@ return [
 		'Cookie'    => 'Illuminate\Support\Facades\Cookie',
 		'Crypt'     => 'Illuminate\Support\Facades\Crypt',
 		'DB'        => 'Illuminate\Support\Facades\DB',
+		'EntityManager' => 'Mitch\LaravelDoctrine\EntityManagerFacade',
 		'Event'     => 'Illuminate\Support\Facades\Event',
 		'File'      => 'Illuminate\Support\Facades\File',
 		'Form'      => 'Illuminate\Html\FormFacade',
